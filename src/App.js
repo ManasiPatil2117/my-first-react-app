@@ -1,12 +1,13 @@
 import './App.css';
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Title from './components/Title'
 import Model from './components/Model';
 import EventList from './components/EventList';
-
+import NewEventForm from './components/NewEventForm';
 function App() {
   const [showModel, setShowModel] = useState(false)
-  const [disp, setDisp] = useState(true)
+  const [disp, setDisp] = useState(false)
+  const [eventForm, setEventForm] = useState(false)
   const [events, showEvents] = useState([
     { title: "This is title 1 ", id: 1 },
     { title: "This is title 2 ", id: 2 },
@@ -34,15 +35,17 @@ function App() {
       {!disp && (<button onClick={() => setDisp(true)}>Show</button>)}
       {disp && (<button onClick={() => setDisp(false)}>Hide</button>)}
 
-      {disp &&
-        <EventList events={events} handleClick={handleClick}/>
-      }
+      {disp && <EventList events={events} handleClick={handleClick} />}
       <br />
       <button onClick={() => setShowModel(true)}>Show Model</button>
-      {showModel && <Model handleClose={handleClose}>
+      {showModel && <Model handleClose={handleClose} isSaleModal={true}>
         <h2>Title</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, cupiditate?</p>
       </Model>}
+      <br />
+      <button onClick={()=>setEventForm(true)}>Add new Event</button>
+      {eventForm && <NewEventForm setEventForm={setEventForm}/>}
+      
     </div>
   );
 }

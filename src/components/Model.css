@@ -13,3 +13,12 @@
     background: #fff;
     border-radius: 10px;
 }
+
+.model h2{
+    border-bottom: 1px solid rgb(230, 227, 227);
+    padding-bottom: 10px;
+}
+
+.model .Sale-btn{
+    border: 4px solid grey;
+}
