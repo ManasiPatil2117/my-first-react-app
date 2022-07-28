@@ -9,6 +9,7 @@ export default function EventList({events,handleClick}) {
             <h2>
               {index}-{events.title}
             </h2>
+            <p>{events.location} - {events.date}</p>
             <button onClick={()=>handleClick(events.id)}>Delete</button>
           </div>)
        }

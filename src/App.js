@@ -8,11 +8,12 @@ function App() {
   const [showModel, setShowModel] = useState(false)
   const [disp, setDisp] = useState(false)
   const [eventForm, setEventForm] = useState(false)
-  const [events, showEvents] = useState([
-    { title: "This is title 1 ", id: 1 },
-    { title: "This is title 2 ", id: 2 },
-    { title: "This is title 3 ", id: 3 }
-  ])
+  const [events, showEvents] = useState([])
+  const addEvent= (event) =>{
+    showEvents((prevEvent)=>{
+      return [...prevEvent,event]
+    })
+  }
   const handleClick = (id) => {
     // showEvents(events.filter((e)=>{
     //   return id !== e.id
@@ -26,7 +27,6 @@ function App() {
   const handleClose = () => {
     setShowModel(false)
   }
-  console.log(showModel)
   const subtitle = ['a', 'b']
   return (
     <div className="App">
@@ -44,7 +44,7 @@ function App() {
       </Model>}
       <br />
       <button onClick={()=>setEventForm(true)}>Add new Event</button>
-      {eventForm && <NewEventForm setEventForm={setEventForm}/>}
+      {eventForm && <NewEventForm setEventForm={setEventForm} addEvent={addEvent}/>}
       
     </div>
   );
