@@ -35,7 +35,7 @@ function App() {
       {!disp && (<button onClick={() => setDisp(true)}>Show</button>)}
       {disp && (<button onClick={() => setDisp(false)}>Hide</button>)}
 
-      {disp && <EventList events={events} handleClick={handleClick} />}
+      {disp && < EventList events={events} handleClick={handleClick} />}
       <br />
       <button onClick={() => setShowModel(true)}>Show Model</button>
       {showModel && <Model handleClose={handleClose} isSaleModal={true}>
